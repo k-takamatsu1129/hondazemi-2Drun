@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1fc44b4727a7908499eab747e19694c0
+guid: 7fa0b1cb8a7962f4abf802479af3b7c9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wolk1cat_0
+      name: araiguma_transparent_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 7
         y: 0
-        width: 869
-        height: 735
+        width: 1017
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06f8066874e68914e886ea233cf561ea
-      internalID: -1434802254
+      spriteID: c949bd671cf17674584dda701a906199
+      internalID: -1201683075
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a7200f1b4fab2ec4aa8b7d9f3272fb99
+    spriteID: 709f689dca3688340867dfb4b7168cc0
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      wolk1cat_0: -1434802254
+      araiguma_transparent_0: -1201683075
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
