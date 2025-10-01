@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1fc44b4727a7908499eab747e19694c0
+guid: 5b179441491110a488183cf25d5f10a1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wolk1cat_0
+      name: wolk1cat_transparent_0
       rect:
         serializedVersion: 2
         x: 0
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06f8066874e68914e886ea233cf561ea
-      internalID: -1434802254
+      spriteID: b127b956bf3148c448b90b1e2541f346
+      internalID: -1701180350
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a7200f1b4fab2ec4aa8b7d9f3272fb99
+    spriteID: 13f23abcd39107f459ea6572b4446886
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      wolk1cat_0: -1434802254
+      wolk1cat_transparent_0: -1701180350
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

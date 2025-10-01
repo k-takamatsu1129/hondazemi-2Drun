@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1fc44b4727a7908499eab747e19694c0
+guid: c0f2553e0e784cf43864b1d4d50f3521
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wolk1cat_0
+      name: tyakuticat_transparent_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 869
-        height: 735
+        width: 744
+        height: 416
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06f8066874e68914e886ea233cf561ea
-      internalID: -1434802254
+      spriteID: 2f7171120b7c1c943833a50031b24d30
+      internalID: 1386044910
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a7200f1b4fab2ec4aa8b7d9f3272fb99
+    spriteID: 62d591bdb1428184e8159af9b4e9f302
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      wolk1cat_0: -1434802254
+      tyakuticat_transparent_0: 1386044910
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
