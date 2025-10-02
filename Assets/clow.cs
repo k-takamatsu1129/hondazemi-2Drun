@@ -4,7 +4,7 @@ public class clow : MonoBehaviour
 {
     Rigidbody2D rbody;
     public float speed = 2.0f;
-    public float downSpeed = -300.0f;
+    public float downSpeed = -600.0f;
     private bool down = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,7 +27,7 @@ public class clow : MonoBehaviour
             rbody.AddForce(transform.up * downSpeed);
             down = true;
         }
-        if(transform.position.y < -0.1)
+        if(transform.position.y < -0.2)
         {
             rbody.linearVelocity = new Vector2(rbody.linearVelocity.x, 0);
         }
