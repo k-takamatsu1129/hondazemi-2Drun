@@ -5,7 +5,7 @@ public class StartBotton : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField]
-    private string Gamescene = "YourGamescene"; 
+    private string Gamescene = "GameScene"; 
 
     void Update()
     {   
@@ -13,7 +13,7 @@ public class StartBotton : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // 次のシーンを読み込む
-            SceneManager.LoadScene("Gamescene");
+            SceneManager.LoadScene(Gamescene);
             
             // または、Build Settingsのインデックス番号で指定する場合
             // SceneManager.LoadScene(1); 
