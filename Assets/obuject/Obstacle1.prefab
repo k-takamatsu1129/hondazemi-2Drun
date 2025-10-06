@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8441231443452342712}
-  - component: {fileID: 5578905855561155075}
-  - component: {fileID: 7156692258514896915}
   m_Layer: 0
   m_Name: Obstacle1
   m_TagString: Untagged
@@ -34,35 +32,6 @@ Transform:
   - {fileID: 592756526085514479}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5578905855561155075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 936352778777485033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 370a89fc5e4d0bb408055b4664c52601, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  leftBoundary: -10
---- !u!114 &7156692258514896915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 936352778777485033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec339a5942046294caed83cfdb58a930, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstaclePrefabs:
-  - {fileID: 936352778777485033}
-  timeBetweenSpawns: 2
 --- !u!1 &6077670343108716971
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefabs: []
-  timeBetweenSpawns: 2
 --- !u!58 &3261242329689325834
 CircleCollider2D:
   m_ObjectHideFlags: 0
