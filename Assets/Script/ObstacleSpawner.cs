@@ -1,19 +1,21 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class ObstacleSpawner : MonoBehaviour
 {
     public GameObject[] obstaclePrefabs; // 生成する障害物のプレハブを格納する配列
-    public float timeBetweenSpawns = 2f; // 障害物を生成する間隔
-    private float nextSpawnTime;
+    private float time;
 
     void Update()
     {
+        time = time + Time.deltaTime;
         // 次の生成タイミングが来たかチェック
-        if (Time.time >= nextSpawnTime)
+        if (time>2f)
         {
             SpawnObstacle();
             // 次の生成タイミングを更新
-            nextSpawnTime = Time.time + timeBetweenSpawns;
+            time = 0f;
         }
     }
 

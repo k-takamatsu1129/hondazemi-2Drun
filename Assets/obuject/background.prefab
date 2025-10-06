@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7275600094293180335}
   m_Layer: 0
   m_Name: asa_0
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,5 +179,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f6f692aaee0294c9f013d86508ce17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundPrefab: {fileID: 6343966000158846772}
+  backgroundPrefab: {fileID: 0}
   scrollSpeed: 2
