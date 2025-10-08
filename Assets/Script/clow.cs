@@ -7,17 +7,12 @@ public class clow : MonoBehaviour
     public float downSpeed = -600.0f;
     private bool down = false;
 
+    private float time = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>(); //コンポーネントを取得
-    }
-
-    //何かがboxCollider(当たり判定)に入ったとき
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("直撃ing");
-        GetComponent<AudioSource>().Play();//AudioSourceのコンポーネントを取得し、Playメソッドを実行する。
     }
 
     private void Update()
@@ -30,6 +25,12 @@ public class clow : MonoBehaviour
         if(transform.position.y < -0.2)
         {
             rbody.linearVelocity = new Vector2(rbody.linearVelocity.x, 0);
+        }
+
+        time += Time.deltaTime;
+        if (time > 5)
+        {
+            Destroy(gameObject);
         }
     }
 

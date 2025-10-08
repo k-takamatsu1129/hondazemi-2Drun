@@ -1,38 +1,31 @@
 using UnityEngine;
-using System.Collections.Generic;
 
-public class jump : MonoBehaviour
+public class araiguma_jump : MonoBehaviour
 {
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float Jump = 350.0f;
     bool isJump;
     Rigidbody2D rbody;
 
-    public Sprite walking;
-    public Sprite jumping;
-    private SpriteRenderer sr;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isJump)
+        if (!isJump)
         {
             rbody.AddForce(new Vector2(0, Jump));
-            sr.sprite = jumping;
             isJump = true;
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            sr.sprite = walking;
             isJump = false;
         }
     }

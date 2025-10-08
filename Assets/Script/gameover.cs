@@ -12,4 +12,13 @@ public class EnemyCollision : MonoBehaviour
             gamemaneger.GameOver(); // GameManeger のメソッドを呼び出す
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("enemy"))  // ← CompareTag 推奨
+        {
+            Debug.Log("Game Over");
+            gamemaneger.GameOver(); // GameManeger のメソッドを呼び出す
+        }
+    }
 }
