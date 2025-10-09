@@ -1,37 +1,31 @@
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+public class cameraManager : MonoBehaviour
 {
-    // カメラが追跡するターゲット（プレイヤー）
-    public Transform target;
-    // カメラとターゲットの間の距離
-    public Vector3 offset = new Vector3(0, 0, -10);
+    public GameObject target; // 追従する対象を決める変数
+    private Vector3 initialCameraPosition; // カメラの初期位置を記憶するための変数
 
-    // カメラの動きを滑らかにするための変数
-    [SerializeField] private float smoothSpeed = 0.125f;
-
+    // Start is called before the first frame update
     void Start()
     {
-        // ターゲットが設定されていない場合、"Player"タグの付いたオブジェクトを探す
-        if (target == null)
-        {
-            GameObject player = GameObject.FindWithTag("Player");
-            if (player != null)
-            {
-                target = player.transform;
-            }
-        }
+        // カメラの初期位置を取得して保持する
+        initialCameraPosition = Camera.main.transform.position; 
     }
 
-    // LateUpdateでカメラを追跡させる
-    void LateUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        if (target == null) return;
+        // 追従する対象の位置を取得
+        Vector3 targetPosition = target.transform.position; 
+        
+        // カメラの新しい位置を計算
+        Vector3 newCameraPosition = new Vector3(
+            targetPosition.x,      // x軸はターゲットに追従
+            initialCameraPosition.y, // y軸は初期位置で固定
+            initialCameraPosition.z  // z軸も初期位置で固定
+        );
 
-        // 追跡先の位置を計算
-        Vector3 desiredPosition = target.position + offset;
-        // 現在位置から追跡先までを滑らかに補間
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-        transform.position = smoothedPosition;
+        // カメラの位置を更新
+        Camera.main.transform.position = newCameraPosition; 
     }
 }

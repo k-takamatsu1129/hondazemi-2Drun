@@ -23,7 +23,7 @@ public class ObstacleSpawner : MonoBehaviour
     {
         time += Time.deltaTime;
         // 次の生成タイミングが来たかチェック
-        if (time > 2f)
+        if (time > 3f)
         {
             SpawnObstacle();
             // 次の生成タイミングを更新

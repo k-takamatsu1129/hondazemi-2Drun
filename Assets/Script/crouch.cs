@@ -5,7 +5,7 @@ public class crouch : MonoBehaviour
     private BoxCollider2D col;
     private Vector2 defaultSize;
 
-    private bool isCrouching = false; //‚µ‚á‚ª‚İ’†‚É^
+    private bool isCrouching = false; //ï¿½ï¿½ï¿½á‚ªï¿½İ’ï¿½ï¿½É^
 
     public Sprite walkSprite;
     public Sprite crouchSprite;
@@ -14,8 +14,8 @@ public class crouch : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        col = GetComponent<BoxCollider2D>(); //ƒLƒƒƒ‰ƒNƒ^[‚Ì“–‚½‚è”»’è‚ğæ“¾
-        defaultSize = col.size; //“–‚½‚è”»’è‚Ì‘å‚«‚³‚ğ‘ã“ü
+        col = GetComponent<BoxCollider2D>(); //ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½^ï¿½[ï¿½Ì“ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½ï¿½ï¿½æ“¾
+        defaultSize = col.size; //ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½Ì‘å‚«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
         sr = GetComponent<SpriteRenderer>();
     }
@@ -25,21 +25,21 @@ public class crouch : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            //‰æ‘œ‚ğ•ÏX@‚µ‚á‚ª‚Ş
+            //ï¿½æ‘œï¿½ï¿½ÏXï¿½@ï¿½ï¿½ï¿½á‚ªï¿½ï¿½
             sr.sprite = crouchSprite;
             isCrouching = true;
 
-            //“–‚½‚è”»’è‚ğ•ÏX
-            col.size = new Vector2(defaultSize.x, defaultSize.y * 0.5f); //“–‚½‚è”»’è‚ğƒfƒtƒHƒ‹ƒg‚Ì”¼•ª‚É•ÏX
+            //ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½ï¿½ÏX
+            col.size = new Vector2(defaultSize.x, defaultSize.y * 0.5f); //ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½ï¿½ï¿½fï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Ì”ï¿½ï¿½ï¿½ï¿½É•ÏX
         }
         else if (isCrouching)
         {
-            //‰æ‘œ‚ğ•ÏX@‘–‚é
+            //ï¿½æ‘œï¿½ï¿½ÏXï¿½@ï¿½ï¿½ï¿½ï¿½
             sr.sprite = walkSprite;
             isCrouching = true;
 
-            //“–‚½‚è”»’è‚ğ•ÏX
-            col.size = new Vector2(defaultSize.x, defaultSize.y); //“–‚½‚è”»’è‚ğƒfƒtƒHƒ‹ƒg‚Éİ’è
+            //ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½ï¿½ÏX
+            col.size = new Vector2(defaultSize.x, defaultSize.y); //ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½ï¿½ï¿½fï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Éİ’ï¿½
         }
     }
 }

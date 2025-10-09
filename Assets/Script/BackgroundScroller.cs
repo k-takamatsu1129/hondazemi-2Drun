@@ -47,7 +47,7 @@ public class BackgroundScroller : MonoBehaviour
         int prefabIndex = Random.Range(0, backgroundPrefabs.Length);
         GameObject newBackground = Instantiate(backgroundPrefabs[prefabIndex], new Vector3(nextSpawnX, 3, 0), Quaternion.identity);
         activeBackgrounds.Add(newBackground);
-        nextSpawnX += backgroundWidth;
+        nextSpawnX += backgroundWidth -2.159f ;
     }
 
     // 画面外に出た背景を消去するメソッド
