@@ -7,8 +7,12 @@ public class ObstacleSpawner : MonoBehaviour
     public GameObject[] obstaclePrefabs; // 生成する障害物のプレハブを格納する配列
     public Transform cameraTransform;    // メインカメラのTransform
     public float spawnOffset = 15f;      // カメラからの生成位置のオフセット
+    public float enemyspown = 3f;
 
     private float time;
+    private float totalPlayTime;
+    [SerializeField]
+    private float intarval = 10f;  
 
     void Start()
     {
@@ -21,9 +25,19 @@ public class ObstacleSpawner : MonoBehaviour
 
     void Update()
     {
-        time += Time.deltaTime;
+        time += Time.deltaTime;  //生成時間
+        totalPlayTime += Time.deltaTime;  //生成間隔
+
+        //生成間隔の変更
+        if(totalPlayTime >= intarval){
+            if(enemyspown > 1f){
+            enemyspown -= 0.2f;
+            }
+            totalPlayTime -= intarval;
+        }
+
         // 次の生成タイミングが来たかチェック
-        if (time > 3f)
+        if (time > enemyspown)
         {
             SpawnObstacle();
             // 次の生成タイミングを更新

@@ -142,6 +142,8 @@ MonoBehaviour:
   - {fileID: 880567636980128926, guid: 7d7a9852d4fb0af4dadf1a280f08eaed, type: 3}
   cameraTransform: {fileID: 922624317}
   spawnOffset: 15
+  enemyspown: 3
+  intarval: 10
 --- !u!1 &767323154
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,7 +620,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpP: 300
+  speedup: 1
+  interval: 10
 --- !u!50 &922624319
 Rigidbody2D:
   serializedVersion: 5
@@ -888,7 +891,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  jumpP: 400
+  speedup: 1
+  interval: 10
 --- !u!50 &1112510271
 Rigidbody2D:
   serializedVersion: 5
@@ -915,7 +919,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &1112510273
 SpriteRenderer:
   m_ObjectHideFlags: 0
