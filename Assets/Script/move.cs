@@ -1,5 +1,5 @@
 //using System.Collections;
-using System.Collections.Generic;
+using System.Collections.Generic; 
 using UnityEngine;
 
 public class moov : MonoBehaviour
@@ -33,6 +33,7 @@ public class moov : MonoBehaviour
         totalPlayTime += Time.deltaTime;
         if(totalPlayTime >= interval){
             speed +=  speedup;
+            rbody.linearDamping += 0.5f;
             totalPlayTime -= interval;
         }
     }

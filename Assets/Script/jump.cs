@@ -3,19 +3,29 @@ using System.Collections.Generic;
 
 public class jump : MonoBehaviour
 {
-    public float Jump = 350.0f;
+    public float Jump = 580.0f;
+    public float val = 30f;
+    public float intaval = 10f;
     bool isJump;
+    private float totalPlayTime = 0f;
     Rigidbody2D rbody;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        totalPlayTime = 0f;
         rbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        totalPlayTime += Time.deltaTime;
+        if(totalPlayTime >= intaval){
+            Jump += val;
+            totalPlayTime = 0f;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && !isJump)
         {
             rbody.AddForce(new Vector2(0, Jump));
