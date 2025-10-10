@@ -2,16 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class moov : MonoBehaviour
 {
-    public float speed = 5f;   // 横に移動する速度
-    public float jumpP = 300f; // ジャンプ力
+    public float speed = 6f;   // 横に移動する速度
+    public float speedup = 1f; //速度の上げ幅
+
+    private float totalPlayTime = 0f;
+    [SerializeField]
+    private  float interval = 10f; // 10秒ごとにスピードを上げる
+    private const string PlayTimeKey = "TotalPlayTime";
 
     Rigidbody2D rbody; // リジッドボディを使うための宣言
 
     // Start is called before the first frame update
     void Start()
     {
+        //速度の初期化
+        speed = 6f;
+        //時間を初期化
+        totalPlayTime = 0f;
+        //時間の開始
+        Time.timeScale = 1;
         // リジッドボディ2Dをコンポーネントから取得して変数に入れる
         rbody = GetComponent<Rigidbody2D>();
     }
@@ -19,17 +30,17 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // ジャンプをするためのコード（もしスペースキーが押されて、上方向に速度がない時に）
-        // if (Input.GetKeyDown(KeyCode.Space) && rbody.linearVelocity.y == 0)
-        // {
-        //      // リジッドボディに力を加える（上方向にジャンプ力をかける）
-        //     rbody.AddForce(transform.up * jumpP);
-        // }
+        totalPlayTime += Time.deltaTime;
+        if(totalPlayTime >= interval){
+            speed +=  speedup;
+            totalPlayTime -= interval;
+        }
     }
 
     private void FixedUpdate()
     {
         //リジッドボディに一定の速度を入れる（横移動の速度, リジッドボディのyの速度）
         rbody.linearVelocity = new Vector2(speed, rbody.linearVelocity.y);
+
     }
 }
