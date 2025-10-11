@@ -141,9 +141,12 @@ MonoBehaviour:
   - {fileID: 2618652104638913243, guid: adf4b82631ec3ca4b90a85ba346d1751, type: 3}
   - {fileID: 880567636980128926, guid: 7d7a9852d4fb0af4dadf1a280f08eaed, type: 3}
   cameraTransform: {fileID: 922624317}
-  spawnOffset: 15
-  enemyspown: 3
-  intarval: 10
+  spawnOffset: 20
+  initialMinDistance: 15
+  minDistanceBetweenObstacles: 0
+  interval: 10
+  val: 0.5
+  minimumDistance: 5
 --- !u!1 &767323154
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,7 +880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81ce630c5d6760408aa15fdc843c6e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Jump: 500
+  Jump: 580
 --- !u!114 &1112510270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -908,7 +911,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1.5
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
