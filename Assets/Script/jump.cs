@@ -26,7 +26,7 @@ public class jump : MonoBehaviour
             totalPlayTime = 0f;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && !isJump)
+        if (Input.GetKeyDown(KeyCode.W) && !isJump)
         {
             rbody.AddForce(new Vector2(0, Jump));
             isJump = true;

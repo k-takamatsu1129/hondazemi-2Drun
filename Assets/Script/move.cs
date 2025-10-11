@@ -2,9 +2,12 @@
 using System.Collections.Generic; 
 using UnityEngine;
 
-public class moov : MonoBehaviour
+public class MOOV : MonoBehaviour
 {
-    public float speed = 6f;   // 横に移動する速度
+    public float speed;  //この変数でスピードを管理
+    public float defaultspeed = 6f;   //元の変数
+    public float fastspeed = 8f;  //早いときの速度の変数
+    public float slowspped = 4f;  //遅いときの速度の変数
     public float speedup = 1f; //速度の上げ幅
 
     private float totalPlayTime = 0f;
@@ -18,11 +21,15 @@ public class moov : MonoBehaviour
     void Start()
     {
         //速度の初期化
-        speed = 6f;
+        defaultspeed = 6f;
+        fastspeed = 8f;
+        slowspped = 4f;
+
         //時間を初期化
         totalPlayTime = 0f;
         //時間の開始
         Time.timeScale = 1;
+
         // リジッドボディ2Dをコンポーネントから取得して変数に入れる
         rbody = GetComponent<Rigidbody2D>();
     }
@@ -30,11 +37,25 @@ public class moov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        speed = defaultspeed;
+        //時間で速度を管理
         totalPlayTime += Time.deltaTime;
         if(totalPlayTime >= interval){
-            speed +=  speedup;
+            defaultspeed +=  speedup;
+            fastspeed += speedup;
+            slowspped += speedup;
             rbody.linearDamping += 0.5f;
             totalPlayTime -= interval;
+        }
+
+        if(Input.GetKey(KeyCode.D)){
+            speed = fastspeed;
+        }
+        else if(Input.GetKey(KeyCode.A)){
+            speed = slowspped;
+        }
+        else{
+            speed = defaultspeed;
         }
     }
 
