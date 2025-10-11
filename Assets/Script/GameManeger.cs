@@ -12,21 +12,31 @@ public class GameManeger : MonoBehaviour
     private const string PlayTimeKey = "TotalPlayTime";
     [SerializeField] private string RankingScene = "RankingScene";
     public GameObject FinishText; // ゲームオーバーテキストを入れる
-    
+
+    public TextMeshProUGUI guageTimeText;  //ゲージテキストの取得
+    public float gauge = 10f; //食料ゲージ
+    public float gaugetime = 0f;  //食料ゲージの時間
+    public float intaval = 2f;  //２秒ごとに食料ゲージを減らす
 
     void Start()
     {
-
         //時間を初期化
         totalPlayTime = 0f;
+        gaugetime = 0f;
+
         //時間の開始
         Time.timeScale = 1;
     }
 
     void Update()
     {
+        //時間の更新
         totalPlayTime += Time.deltaTime;
+        gaugetime += Time.deltaTime;
+
+        //関数の遷移
         DisplayTime();
+        Displaygauge();
     }
     
     private void DisplayTime()
@@ -35,6 +45,26 @@ public class GameManeger : MonoBehaviour
         int seconds = (int)Mathf.Floor(totalPlayTime % 60);
         playTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+    private void Displaygauge(){
+        if(gauge > 0){
+        if(gaugetime >= intaval){
+            gauge -= 1f;
+            gaugetime = 0f;
+        }
+        }
+        else{
+            //本来はここを有効化
+            //Debug,Log("食料ゲージによる終了");
+            //GameOver();
+            gauge = 10f;
+        }
+        guageTimeText.text = gauge.ToString();
+    }
+
+    //アイテム入手時の処理:アイテムの画像決定後有効化
+    // private void item (){
+    //     gauge = 10f;
+    // }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
