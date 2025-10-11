@@ -309,6 +309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle1
       objectReference: {fileID: 0}
+    - target: {fileID: 936352778777485033, guid: 1fdd7f292393513408e6a46d082384d6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6077670343108716971, guid: 1fdd7f292393513408e6a46d082384d6, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -623,6 +627,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  defaultspeed: 6
+  fastspeed: 7
+  slowspped: 5
   speedup: 1
   interval: 10
 --- !u!50 &922624319
@@ -708,7 +715,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b822fb7b15098a4a83777b379ab7bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1112510266}
+  speed: 6
+  speedup: 1
+  interval: 10
 --- !u!1 &1060350925
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,6 +890,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Jump: 580
+  val: 30
+  intaval: 10
 --- !u!114 &1112510270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,6 +905,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  defaultspeed: 6
+  fastspeed: 7
+  slowspped: 5
   speedup: 1
   interval: 10
 --- !u!50 &1112510271
@@ -1006,6 +1020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamemaneger: {fileID: 1414229469}
+  mainCamera: {fileID: 922624316}
 --- !u!61 &1112510276
 BoxCollider2D:
   m_ObjectHideFlags: 0

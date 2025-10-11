@@ -12,14 +12,15 @@ public class GameManeger : MonoBehaviour
     private const string PlayTimeKey = "TotalPlayTime";
     [SerializeField] private string RankingScene = "RankingScene";
     public GameObject FinishText; // ゲームオーバーテキストを入れる
+    
 
     void Start()
     {
+
         //時間を初期化
         totalPlayTime = 0f;
         //時間の開始
         Time.timeScale = 1;
-
     }
 
     void Update()
