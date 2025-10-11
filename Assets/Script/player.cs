@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class gameover : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public GameManeger gamemaneger;  // ゲームマネージャーへの参照
 
@@ -61,6 +61,14 @@ public class gameover : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //アイテム入手時の処理：アイテム画像決定後有効化
+        // if(collision.gameObject.CompareTag("item")){
+        //     Debug.Log("アイテムを入手");
+        //     if(gamemaneger != null){
+        //         gamemaneger.item();
+        //     }
+        // }
+
         // "enemy"タグのオブジェクトに衝突したらゲームオーバー
         if (collision.gameObject.CompareTag("enemy"))
         {
