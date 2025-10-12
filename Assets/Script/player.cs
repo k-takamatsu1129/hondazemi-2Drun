@@ -79,4 +79,16 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("enemy"))
+        {
+            Debug.Log("衝突によるゲームオーバー");
+            if (gamemaneger != null)
+            {
+                gamemaneger.GameOver();
+            }
+        }
+    }
 }
