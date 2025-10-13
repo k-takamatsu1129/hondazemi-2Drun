@@ -47,24 +47,30 @@ public class GameManeger : MonoBehaviour
     }
     private void Displaygauge(){
         if(gauge > 0){
-        if(gaugetime >= intaval){
-            gauge -= 1f;
-            gaugetime = 0f;
-        }
+            if(gaugetime >= intaval){
+                gauge -= 1f;
+                gaugetime = 0f;
+            }
         }
         else{
             //本来はここを有効化
-            //Debug,Log("食料ゲージによる終了");
-            //GameOver();
-            gauge = 10f;
+            Debug.Log("食料ゲージによる終了");
+            GameOver();
         }
         guageTimeText.text = gauge.ToString();
     }
 
     //アイテム入手時の処理:アイテムの画像決定後有効化
-    // private void item (){
-    //     gauge = 10f;
-    // }
+    public void item (){
+        if(gauge + 2f >= 10f)
+        {
+            gauge = 10f;
+        }
+        else
+        {
+            gauge += 2f;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

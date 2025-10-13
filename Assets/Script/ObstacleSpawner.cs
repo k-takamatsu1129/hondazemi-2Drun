@@ -3,11 +3,14 @@ using System.Collections.Generic;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    public GameObject[] obstaclePrefabs;
+    // 敵とアイテムの配列を分ける
+    public GameObject[] enemyPrefabs;
+    public GameObject[] itemPrefabs; // 複数のアイテムを格納できる配列
+
     public Transform cameraTransform;
     public float spawnOffset = 15f; 
 
-    public float initialMinDistance = 15f;
+    public float initialMinDistance = 10f;
     public float minDistanceBetweenObstacles;
 
     private float totalPlayTime = 0f;
@@ -19,6 +22,8 @@ public class ObstacleSpawner : MonoBehaviour
     private float minimumDistance = 5f;
 
     private float nextSpawnX;
+    private float specificItemSpawnTimer;
+    public float spawnSpecificInterval = 9f; // 特定アイテムの出現間隔
 
     void Start()
     {
@@ -30,9 +35,8 @@ public class ObstacleSpawner : MonoBehaviour
             cameraTransform = Camera.main.transform;
         }
 
-        // 初期生成位置をカメラの位置+オフセットで決定
-        // ここではまだ生成しない
         nextSpawnX = cameraTransform.position.x + spawnOffset;
+        specificItemSpawnTimer = spawnSpecificInterval;
     }
 
     void Update()
@@ -47,24 +51,53 @@ public class ObstacleSpawner : MonoBehaviour
             totalPlayTime = 0f;
         }
 
-        // 修正: カメラが次の生成位置に十分近づいたら新しい障害物を生成
+        specificItemSpawnTimer -= Time.deltaTime;
+        
         if (cameraTransform.position.x > nextSpawnX - spawnOffset)
         {
-            SpawnObstacle();
+            SpawnObject();
         }
     }
 
-    void SpawnObstacle()
+    void SpawnObject()
     {
-        int randomIndex = Random.Range(0, obstaclePrefabs.Length);
-        GameObject obstacleToSpawn = obstaclePrefabs[randomIndex];
+        GameObject objectToSpawn;
         
-        // 生成位置はnextSpawnXを使用する
+        if (specificItemSpawnTimer <= 0)
+        {
+            // 5秒に1回、アイテム配列からランダムに1つを生成
+            if (itemPrefabs.Length > 0)
+            {
+                int randomIndex = Random.Range(0, itemPrefabs.Length);
+                objectToSpawn = itemPrefabs[randomIndex];
+            }
+            else
+            {
+                // アイテムが設定されていなければ、何もしないか、デフォルトの敵を生成するなどの処理
+                Debug.LogWarning("アイテムプレハブが設定されていません。");
+                return;
+            }
+            specificItemSpawnTimer = spawnSpecificInterval; // タイマーをリセット
+        }
+        else
+        {
+            // アイテム出現タイミングではない場合は敵をランダムに生成
+            if (enemyPrefabs.Length > 0)
+            {
+                int randomIndex = Random.Range(0, enemyPrefabs.Length);
+                objectToSpawn = enemyPrefabs[randomIndex];
+            }
+            else
+            {
+                // 敵が設定されていなければ何もしない
+                Debug.LogWarning("敵プレハブが設定されていません。");
+                return;
+            }
+        }
+
         Vector3 spawnPosition = new Vector3(nextSpawnX, 0, 0);
+        Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
 
-        Instantiate(obstacleToSpawn, spawnPosition, Quaternion.identity);
-
-        // 修正: 次の生成位置を更新
         nextSpawnX = cameraTransform.position.x + spawnOffset + minDistanceBetweenObstacles;
     }
 }
