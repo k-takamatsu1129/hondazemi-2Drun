@@ -61,14 +61,6 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //アイテム入手時の処理：アイテム画像決定後有効化
-        // if(collision.gameObject.CompareTag("item")){
-        //     Debug.Log("アイテムを入手");
-        //     if(gamemaneger != null){
-        //         gamemaneger.item();
-        //     }
-        // }
-
         // "enemy"タグのオブジェクトに衝突したらゲームオーバー
         if (collision.gameObject.CompareTag("enemy"))
         {
@@ -76,6 +68,18 @@ public class Player : MonoBehaviour
             if (gamemaneger != null)
             {
                 gamemaneger.GameOver();
+            }
+            //プレイヤー消すのもありかなー
+            //Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //アイテム入手時の処理
+        if(collision.gameObject.CompareTag("item")){
+            Debug.Log("アイテムを入手");
+            if(gamemaneger != null){
+                 gamemaneger.item();
             }
         }
     }

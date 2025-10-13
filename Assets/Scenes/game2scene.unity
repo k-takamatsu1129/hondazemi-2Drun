@@ -136,10 +136,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec339a5942046294caed83cfdb58a930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefabs:
+  enemyPrefabs:
   - {fileID: 754834055695938197, guid: b5b8e20869e517b41bbe8d9cfa31a701, type: 3}
   - {fileID: 2618652104638913243, guid: adf4b82631ec3ca4b90a85ba346d1751, type: 3}
   - {fileID: 880567636980128926, guid: 7d7a9852d4fb0af4dadf1a280f08eaed, type: 3}
+  itemPrefabs:
+  - {fileID: 5699621902120359987, guid: 18392232db8667645ba1a48734bb7339, type: 3}
   cameraTransform: {fileID: 922624317}
   spawnOffset: 20
   initialMinDistance: 15
@@ -147,6 +149,7 @@ MonoBehaviour:
   interval: 10
   val: 0.5
   minimumDistance: 5
+  spawnSpecificInterval: 5
 --- !u!1 &767323154
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,7 +875,7 @@ GameObject:
   - component: {fileID: 1112510277}
   m_Layer: 0
   m_Name: startcat_0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
