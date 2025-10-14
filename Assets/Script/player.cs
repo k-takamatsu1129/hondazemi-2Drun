@@ -76,16 +76,16 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //アイテム入手時の処理
-        if(collision.gameObject.CompareTag("item")){
+        if (collision.gameObject.CompareTag("item"))
+        {
             Debug.Log("アイテムを入手");
-            if(gamemaneger != null){
-                 gamemaneger.item();
+            if (gamemaneger != null)
+            {
+                gamemaneger.item();
             }
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
+        //敵と接触した時の処理
         if (collision.gameObject.CompareTag("enemy"))
         {
             Debug.Log("衝突によるゲームオーバー");
