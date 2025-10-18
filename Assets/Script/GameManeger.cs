@@ -18,6 +18,10 @@ public class GameManeger : MonoBehaviour
     public float gaugetime = 0f;  //食料ゲージの時間
     public float intaval = 2f;  //２秒ごとに食料ゲージを減らす
 
+    private AudioSource audioSource;
+    public AudioClip GameOverSound;
+    public AudioClip ItemGetSound;
+
     void Start()
     {
         //時間を初期化
@@ -26,6 +30,9 @@ public class GameManeger : MonoBehaviour
 
         //時間の開始
         Time.timeScale = 1;
+
+        //効果音のコンポーネント取得
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -70,6 +77,7 @@ public class GameManeger : MonoBehaviour
         {
             gauge += 2f;
         }
+        audioSource.PlayOneShot(ItemGetSound);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -90,6 +98,21 @@ public class GameManeger : MonoBehaviour
         //時間の保存
         PlayerPrefs.SetFloat("LastPlayTime", totalPlayTime); 
         PlayerPrefs.Save();
+
+        //音楽を停止
+        GameObject soundObject = GameObject.Find("MainSoundObject");
+        if (soundObject != null)
+        {
+            AudioSource audioSource = soundObject.GetComponent<AudioSource>();
+            audioSource.Stop();
+            Destroy(soundObject);
+        }
+        else
+        {
+            Debug.Log("MainSoundObjectがありません");
+        }
+        //効果音再生
+        audioSource.PlayOneShot(GameOverSound);
 
         //１秒後に画面遷移
         StartCoroutine(GameOverCoroutine(1f, RankingScene));

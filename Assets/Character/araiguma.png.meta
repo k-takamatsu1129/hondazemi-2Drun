@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 97edbe7829b30e743a3057f229dbaac6
+guid: 150ba18176f10fd49aba5fc80a063157
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 85
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jumpcat_0
+      name: araiguma_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 758
-        height: 680
+        width: 812
+        height: 790
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 314c1a380372fd4459288335c1eee1f3
-      internalID: -1368237014
+      spriteID: c746782b3e1257841ab0d38086525e7d
+      internalID: 1806835378
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e2d38fdffd1505438a5872840d84d14
+    spriteID: f5b8d439c00eb9843aa47e20d36dd5c0
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      jumpcat_0: -1368237014
+      araiguma_0: 1806835378
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

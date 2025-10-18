@@ -6,14 +6,15 @@ public class jump : MonoBehaviour
     public float Jump = 580.0f;
     public float val = 30f;
     public float intaval = 10f;
-    bool isJump;
+    public bool isJump;
     private float totalPlayTime = 0f;
     Rigidbody2D rbody;
 
     public Sprite walking;
     public Sprite jumping;
     private SpriteRenderer sr;
-    public AudioSource jumpSE;
+    private AudioSource audioSource;
+    public AudioClip jumpSE;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,6 +22,7 @@ public class jump : MonoBehaviour
         totalPlayTime = 0f;
         rbody = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,10 +34,10 @@ public class jump : MonoBehaviour
             totalPlayTime = 0f;
         }
 
-        if (Input.GetKeyDown(KeyCode.W) && !isJump)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && !isJump)
         {
             rbody.AddForce(new Vector2(0, Jump));
-            jumpSE.Play();
+            audioSource.PlayOneShot(jumpSE);
             sr.sprite = jumping;
             isJump = true;
         }

@@ -44,7 +44,7 @@ public class MOOV : MonoBehaviour
             defaultspeed +=  speedup;
             fastspeed += speedup;
             slowspped += speedup;
-            rbody.linearDamping += 0.5f;
+            //rbody.linearDamping += 0.5f; //ジャンプ力も下がってる
             totalPlayTime -= interval;
         }
 
