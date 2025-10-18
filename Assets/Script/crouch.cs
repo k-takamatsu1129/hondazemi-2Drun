@@ -6,7 +6,7 @@ public class crouch : MonoBehaviour
     private Vector2 defaultSize;
     private Vector2 defaultOffset;
 
-    private bool isCrouching = false; //���Ⴊ�ݒ��ɐ^
+    public bool isCrouching = false; //���Ⴊ�ݒ��ɐ^
     private bool isJumping;
 
     public Sprite walkSprite;

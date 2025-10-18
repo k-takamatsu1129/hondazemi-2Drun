@@ -4,16 +4,12 @@ public class soundplayer : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     //何かがboxCollider(当たり判定)に入ったとき
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("hit");
-            //音楽を停止
-            GameObject soundObject = GameObject.Find("MainSoundObject");
-            AudioSource audioSource = soundObject.GetComponent<AudioSource>();
-            audioSource.Stop();
-            Destroy(soundObject);
             //効果音再生
             GetComponent<AudioSource>().Play();//AudioSourceのコンポーネントを取得し、Playメソッドを実行する。
         }
@@ -24,11 +20,6 @@ public class soundplayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("hit");
-            //音楽を停止
-            GameObject soundObject = GameObject.Find("MainSoundObject");
-            AudioSource audioSource = soundObject.GetComponent<AudioSource>();
-            audioSource.Stop();
-            Destroy(soundObject);
             //効果音再生
             GetComponent<AudioSource>().Play();
         }
