@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System;
@@ -22,6 +23,10 @@ public class GameManeger : MonoBehaviour
     public AudioClip GameOverSound;
     public AudioClip ItemGetSound;
 
+    //食料ゲージ(UI)
+    public GameObject GaugeInsideUI;
+    float GaugeMax = 10f;
+
     void Start()
     {
         //時間を初期化
@@ -44,6 +49,10 @@ public class GameManeger : MonoBehaviour
         //関数の遷移
         DisplayTime();
         Displaygauge();
+
+        //食料ゲージの処理
+        float remaining = gauge / GaugeMax;
+        GaugeInsideUI.GetComponent<Image>().fillAmount = remaining;
     }
     
     private void DisplayTime()
