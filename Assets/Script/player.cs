@@ -84,6 +84,15 @@ public class Player : MonoBehaviour
                 gamemaneger.item();
             }
         }
+        
+        if (collision.gameObject.CompareTag("item1"))
+        {
+            Debug.Log("アイテムを入手");
+            if (gamemaneger != null)
+            {
+                gamemaneger.difitem();
+            }
+        }
 
         //敵と接触した時の処理
         if (collision.gameObject.CompareTag("enemy"))
