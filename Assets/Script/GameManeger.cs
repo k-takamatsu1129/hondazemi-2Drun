@@ -68,9 +68,10 @@ public class GameManeger : MonoBehaviour
                 gaugetime = 0f;
             }
         }
-        else{
+        else if(gauge == 0){
             //本来はここを有効化
             Debug.Log("食料ゲージによる終了");
+            gauge = -1f;
             GameOver();
         }
         guageTimeText.text = gauge.ToString();

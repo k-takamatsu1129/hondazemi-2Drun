@@ -6,7 +6,7 @@ public class jump : MonoBehaviour
     public float Jump = 580.0f;
     public float val = 30f;
     public float intaval = 10f;
-    public bool isJump;
+    public bool isJump = true;
     private float totalPlayTime = 0f;
     Rigidbody2D rbody;
 
