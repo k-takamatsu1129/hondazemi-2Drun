@@ -217,14 +217,15 @@ MonoBehaviour:
   - {fileID: 880567636980128926, guid: 7d7a9852d4fb0af4dadf1a280f08eaed, type: 3}
   itemPrefabs:
   - {fileID: 5699621902120359987, guid: 18392232db8667645ba1a48734bb7339, type: 3}
+  - {fileID: 4507186053434964649, guid: 6058733e723a2ce43b3562c8998ca963, type: 3}
   cameraTransform: {fileID: 922624317}
   spawnOffset: 20
   initialMinDistance: 15
-  minDistanceBetweenObstacles: 0
   interval: 10
   val: 0.5
   minimumDistance: 5
   spawnSpecificInterval: 5
+  itemSpawnProbability: 0.2
 --- !u!1 &767323154
 GameObject:
   m_ObjectHideFlags: 0

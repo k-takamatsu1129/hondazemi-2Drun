@@ -89,6 +89,11 @@ public class GameManeger : MonoBehaviour
         audioSource.PlayOneShot(ItemGetSound);
     }
 
+    public void difitem (){
+        gauge -= 2f;
+        audioSource.PlayOneShot(ItemGetSound);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) // Playerにぶつかったら
