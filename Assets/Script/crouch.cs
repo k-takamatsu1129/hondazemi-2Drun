@@ -7,7 +7,9 @@ public class crouch : MonoBehaviour
     private Vector2 defaultOffset;
 
     public bool isCrouching = false; //���Ⴊ�ݒ��ɐ^
-    private bool isJumping;
+
+    private Rigidbody2D rb;
+    public float defaultGravity = 2.0f;
 
     public Sprite walkSprite;
     public Sprite crouchSprite;
@@ -23,6 +25,8 @@ public class crouch : MonoBehaviour
         defaultSize = col.size; //�����蔻��̑傫������
         defaultOffset = col.offset;
 
+        rb = GetComponent<Rigidbody2D>();
+
         sr = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
     }
@@ -30,7 +34,7 @@ public class crouch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && Time.deltaTime != 0)
         {
             //�摜��ύX�@���Ⴊ��
             sr.sprite = crouchSprite;
@@ -40,8 +44,9 @@ public class crouch : MonoBehaviour
             }
             isCrouching = true;
 
-            jump jumper = GetComponent<jump>();
-            jumper.Jump = 300;
+            //jump jumper = GetComponent<jump>();
+            //jumper.Jump = 300;
+            rb.gravityScale = defaultGravity*2;
 
             //�����蔻���ύX
             col.size = new Vector2(defaultSize.x, defaultSize.y * 0.5f); //�����蔻����f�t�H���g�̔����ɕύX
@@ -53,8 +58,9 @@ public class crouch : MonoBehaviour
             sr.sprite = walkSprite;
             isCrouching = false;
 
-            jump jumper = GetComponent<jump>();
-            jumper.Jump = 580;
+            //jump jumper = GetComponent<jump>();
+            //jumper.Jump = 580;
+            rb.gravityScale = defaultGravity;
 
             //�����蔻���ύX
             col.size = new Vector2(defaultSize.x, defaultSize.y); //�����蔻����f�t�H���g�ɐݒ�
