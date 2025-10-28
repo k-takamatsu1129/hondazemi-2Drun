@@ -1091,7 +1091,7 @@ MonoBehaviour:
   Jump: 580
   val: 30
   intaval: 10
-  isJump: 0
+  isJump: 1
   walking: {fileID: 2147418083, guid: c70456582491afc4a83b68ad00438062, type: 3}
   jumping: {fileID: -1368237014, guid: 97edbe7829b30e743a3057f229dbaac6, type: 3}
   jumpSE: {fileID: 8300000, guid: ddc69941a9f5d9c46b551ed9c0e2bcd9, type: 3}
@@ -1283,6 +1283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCrouching: 0
+  defaultGravity: 2
   walkSprite: {fileID: 21300000, guid: 7710de21ece476f4297e26092cfb3824, type: 3}
   crouchSprite: {fileID: 400107875, guid: a495f972e55c1344db2daf0e443cd597, type: 3}
   crouchSE: {fileID: 8300000, guid: f4399865ca911de47ab78852a727a353, type: 3}
@@ -1581,6 +1582,7 @@ MonoBehaviour:
   intaval: 2
   GameOverSound: {fileID: 8300000, guid: 35ad8bec20d64344fbc9d18a7b657784, type: 3}
   ItemGetSound: {fileID: 8300000, guid: 8c88b3c4aec458d449bd1abc83344a2b, type: 3}
+  BadItemGetSound: {fileID: 8300000, guid: 27a03935ee4bc0d4392e5cd7cc1d16fd, type: 3}
   GaugeInsideUI: {fileID: 70803221}
 --- !u!82 &1414229471
 AudioSource:

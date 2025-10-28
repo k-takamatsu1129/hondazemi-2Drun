@@ -34,7 +34,7 @@ public class jump : MonoBehaviour
             totalPlayTime = 0f;
         }
 
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && !isJump)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && !isJump && Time.deltaTime != 0)
         {
             rbody.AddForce(new Vector2(0, Jump));
             audioSource.PlayOneShot(jumpSE);

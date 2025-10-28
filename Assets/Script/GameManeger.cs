@@ -22,6 +22,7 @@ public class GameManeger : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip GameOverSound;
     public AudioClip ItemGetSound;
+    public AudioClip BadItemGetSound;
 
     //食料ゲージ(UI)
     public GameObject GaugeInsideUI;
@@ -79,20 +80,20 @@ public class GameManeger : MonoBehaviour
 
     //アイテム入手時の処理:アイテムの画像決定後有効化
     public void item (){
-        if(gauge + 2f >= 10f)
+        if(gauge + 3f >= 10f)
         {
             gauge = 10f;
         }
         else
         {
-            gauge += 2f;
+            gauge += 3f;
         }
         audioSource.PlayOneShot(ItemGetSound);
     }
 
     public void difitem (){
         gauge -= 2f;
-        audioSource.PlayOneShot(ItemGetSound);
+        audioSource.PlayOneShot(BadItemGetSound);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
