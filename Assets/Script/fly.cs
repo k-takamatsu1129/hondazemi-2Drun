@@ -23,7 +23,7 @@ public class fly : MonoBehaviour
     public float deceleration = 10f;
 
     // 画面の縦方向の移動範囲を制限
-    public float verticalLimit = 4f;
+    public float verticalLimit = 8f;
 
     // Rigidbody2Dコンポーネントへの参照
     private Rigidbody2D rb;
