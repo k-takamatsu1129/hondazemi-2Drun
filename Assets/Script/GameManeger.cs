@@ -31,6 +31,7 @@ public class GameManeger : MonoBehaviour
     public AudioClip GameOverSound;
     public AudioClip ItemGetSound;
     public AudioClip BadItemGetSound;
+    public AudioClip SpaceItemGetSound;
 
     //食料ゲージ(UI)
     public GameObject GaugeInsideUI;
@@ -76,7 +77,7 @@ public class GameManeger : MonoBehaviour
                 gaugetime = 0f;
             }
         }
-        else if(gauge == 0){
+        else if(Time.deltaTime != 0){
             //本来はここを有効化
             Debug.Log("食料ゲージによる終了");
             GameOver();
@@ -105,17 +106,30 @@ public class GameManeger : MonoBehaviour
 
     //シーンの切り替え関数
     public void changsene(){
-        if(SceneManager.GetActiveScene().name == "game2scene")
+        GameObject soundObject;
+        //シーンチェンジ
+        if (SceneManager.GetActiveScene().name == "game2scene")
         {
+            soundObject = GameObject.Find("MainSoundObject");
+            if (soundObject != null)
+            {
+                AudioSource audioSource = soundObject.GetComponent<AudioSource>();
+                audioSource.Stop();
+            }
             SceneManager.LoadScene(spaceScene);
         }
          else if(SceneManager.GetActiveScene().name == "spaceScene")
          {
+            soundObject = GameObject.Find("MainSoundObject");
+            if (soundObject != null)
+            {
+                AudioSource audioSource = soundObject.GetComponent<AudioSource>();
+                audioSource.Play();
+            }
             SceneManager.LoadScene(game2scene);
          }
             PlayerPrefs.SetFloat("LastPlayTime", totalPlayTime);
             PlayerPrefs.Save();
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -138,7 +152,7 @@ public class GameManeger : MonoBehaviour
         PlayerPrefs.SetFloat("LastPlayTime", totalPlayTime); 
         PlayerPrefs.Save();
 
-        //音楽を停止
+        //地上音楽を停止
         GameObject soundObject = GameObject.Find("MainSoundObject");
         if (soundObject != null)
         {
@@ -149,6 +163,13 @@ public class GameManeger : MonoBehaviour
         else
         {
             Debug.Log("MainSoundObjectがありません");
+        }
+        //宇宙音楽を停止
+        soundObject = GameObject.Find("SpaceSoundObject");
+        if (soundObject != null)
+        {
+            AudioSource audioSource = soundObject.GetComponent<AudioSource>();
+            audioSource.Stop();
         }
         //効果音再生
         audioSource.PlayOneShot(GameOverSound);

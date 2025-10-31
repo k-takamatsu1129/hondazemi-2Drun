@@ -2075,7 +2075,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2113024232899586463, guid: 5ad4fbef919dd0d439235beaa4acb34d, type: 3}
       propertyPath: m_Volume
-      value: 0.07
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3373382283505366699, guid: 5ad4fbef919dd0d439235beaa4acb34d, type: 3}
       propertyPath: FinishText
@@ -2093,6 +2093,10 @@ PrefabInstance:
       propertyPath: guageTimeText
       value: 
       objectReference: {fileID: 1672410926}
+    - target: {fileID: 3373382283505366699, guid: 5ad4fbef919dd0d439235beaa4acb34d, type: 3}
+      propertyPath: SpaceItemGetSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c624575f050cc0244932f9f8ea97c379, type: 3}
     - target: {fileID: 3423382971564228715, guid: 5ad4fbef919dd0d439235beaa4acb34d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.2780492
