@@ -8,14 +8,23 @@ using System.Collections;
 public class GameManeger : MonoBehaviour
 {
     public TextMeshProUGUI playTimeText;
-    private float totalPlayTime = 0f;
+    public float totalPlayTime = 0f;
     private const string LastPlayTimeKey = "LastPlayTime";
+    private const string LastGuage   = "LastGuage";
     private const string PlayTimeKey = "TotalPlayTime";
+
+    [SerializeField] private string game2scene = "game2scene";
     [SerializeField] private string RankingScene = "RankingScene";
+    [SerializeField] private string spaceScene = "spaceScene";
+
     public GameObject FinishText; // ゲームオーバーテキストを入れる
 
+    // シングルトンインスタンス
+    public static GameManeger Instance;
+
+
     public TextMeshProUGUI guageTimeText;  //ゲージテキストの取得
-    public float gauge = 10f; //食料ゲージ
+    public float gauge; //食料ゲージ
     public float gaugetime = 0f;  //食料ゲージの時間
     public float intaval = 2f;  //２秒ごとに食料ゲージを減らす
 
@@ -30,9 +39,8 @@ public class GameManeger : MonoBehaviour
 
     void Start()
     {
-        //時間を初期化
-        totalPlayTime = 0f;
-        gaugetime = 0f;
+        totalPlayTime = PlayerPrefs.GetFloat(LastPlayTimeKey);
+        gauge = PlayerPrefs.GetFloat(LastGuage);
 
         //時間の開始
         Time.timeScale = 1;
@@ -40,6 +48,7 @@ public class GameManeger : MonoBehaviour
         //効果音のコンポーネント取得
         audioSource = GetComponent<AudioSource>();
     }
+
 
     void Update()
     {
@@ -56,7 +65,7 @@ public class GameManeger : MonoBehaviour
         GaugeInsideUI.GetComponent<Image>().fillAmount = remaining;
     }
     
-    private void DisplayTime()
+    private  void DisplayTime()
     {
         int minutes = (int)Mathf.Floor(totalPlayTime / 60);
         int seconds = (int)Mathf.Floor(totalPlayTime % 60);
@@ -72,7 +81,6 @@ public class GameManeger : MonoBehaviour
         else if(gauge == 0){
             //本来はここを有効化
             Debug.Log("食料ゲージによる終了");
-            gauge = -1f;
             GameOver();
         }
         guageTimeText.text = gauge.ToString();
@@ -91,9 +99,25 @@ public class GameManeger : MonoBehaviour
         audioSource.PlayOneShot(ItemGetSound);
     }
 
+    //デバフアイテムを取った時の関数
     public void difitem (){
         gauge -= 2f;
         audioSource.PlayOneShot(BadItemGetSound);
+    }
+
+    //シーンの切り替え関数
+    public void changsene(){
+        if(SceneManager.GetActiveScene().name == "game2scene")
+        {
+            SceneManager.LoadScene(spaceScene);
+        }
+         else if(SceneManager.GetActiveScene().name == "spaceScene")
+         {
+            SceneManager.LoadScene(game2scene);
+         }
+            PlayerPrefs.SetFloat("LastPlayTime", totalPlayTime);
+            PlayerPrefs.Save();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -104,6 +128,7 @@ public class GameManeger : MonoBehaviour
         }
     }
 
+    //ゲームオーバー関数
     public void GameOver()
     {
         // GameOverテキストを呼び出す
@@ -134,6 +159,7 @@ public class GameManeger : MonoBehaviour
         StartCoroutine(GameOverCoroutine(1f, RankingScene));
     }
 
+    //画面遷移の関数
     private IEnumerator GameOverCoroutine(float delay, string sceneName)
     {
         // 指定した秒数だけ待機する（Time.timeScaleの影響を受けない）
@@ -142,4 +168,13 @@ public class GameManeger : MonoBehaviour
         // 待機後に実行したい処理
         SceneManager.LoadScene(sceneName);
     }
+    // GameManager.cs に追加
+    public void ResetGameState()
+    {
+        gauge = 10f;
+        gaugetime = 0f;
+        totalPlayTime = 0f;
+        Time.timeScale = 1;
+        // 必要に応じて、他のゲーム状態もリセット
+}
 }
