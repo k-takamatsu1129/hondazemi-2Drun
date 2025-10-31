@@ -10,7 +10,6 @@ public class GameManeger : MonoBehaviour
     public TextMeshProUGUI playTimeText;
     public float totalPlayTime = 0f;
     private const string LastPlayTimeKey = "LastPlayTime";
-    private const string LastGuage   = "LastGuage";
     private const string PlayTimeKey = "TotalPlayTime";
 
     [SerializeField] private string game2scene = "game2scene";
@@ -40,7 +39,6 @@ public class GameManeger : MonoBehaviour
     void Start()
     {
         totalPlayTime = PlayerPrefs.GetFloat(LastPlayTimeKey);
-        gauge = PlayerPrefs.GetFloat(LastGuage);
 
         //時間の開始
         Time.timeScale = 1;

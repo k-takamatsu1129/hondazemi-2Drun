@@ -218,6 +218,7 @@ MonoBehaviour:
   itemPrefabs:
   - {fileID: 5699621902120359987, guid: 18392232db8667645ba1a48734bb7339, type: 3}
   - {fileID: 4507186053434964649, guid: 6058733e723a2ce43b3562c8998ca963, type: 3}
+  - {fileID: 4507186053434964649, guid: 6058733e723a2ce43b3562c8998ca963, type: 3}
   - {fileID: 5967394280703443853, guid: e9b36bfa82724ee44b3801104ad9dda7, type: 3}
   cameraTransform: {fileID: 922624317}
   spawnOffset: 20
@@ -1109,7 +1110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  defaultspeed: 6
+  defaultspeed: 10
   fastspeed: 7
   slowspped: 5
   speedup: 1
@@ -1224,7 +1225,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamemaneger: {fileID: 1524255537668911062}
-  spacemaneger: {fileID: 6536616773051209837, guid: 444675b378962b74eaf37026c8632699, type: 3}
   mainCamera: {fileID: 922624316}
 --- !u!61 &1112510276
 BoxCollider2D:
@@ -2073,6 +2073,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2113024232899586463, guid: 5ad4fbef919dd0d439235beaa4acb34d, type: 3}
+      propertyPath: m_Volume
+      value: 0.07
+      objectReference: {fileID: 0}
     - target: {fileID: 3373382283505366699, guid: 5ad4fbef919dd0d439235beaa4acb34d, type: 3}
       propertyPath: FinishText
       value: 

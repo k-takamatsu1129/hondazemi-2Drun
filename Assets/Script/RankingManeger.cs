@@ -6,7 +6,6 @@ public class RankingManager : MonoBehaviour
 {
     public TextMeshProUGUI lastScoreText;
     private const string LastPlayTimeKey = "LastPlayTime";
-    private const string LastGuage = "LastGuage";
 
     void Start()
     {
@@ -21,7 +20,6 @@ public class RankingManager : MonoBehaviour
 
             // ★★★読み込んだ後にPlayerPrefsをクリア★★★
             PlayerPrefs.DeleteKey(LastPlayTimeKey);
-            PlayerPrefs.SetFloat("LastGuage", 10f);
             PlayerPrefs.Save();
         }
         else

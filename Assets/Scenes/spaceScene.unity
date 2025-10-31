@@ -1106,7 +1106,7 @@ MonoBehaviour:
   speedup: 1
   targetX: 0
   interval: 10
-  acceleration: 5
+  acceleration: 7
   deceleration: 10
   verticalLimit: 4
 --- !u!50 &1413392599
@@ -1180,7 +1180,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 8, y: 7}
+  m_Size: {x: 7, y: 6}
   m_EdgeRadius: 0
 --- !u!212 &1413392601
 SpriteRenderer:
