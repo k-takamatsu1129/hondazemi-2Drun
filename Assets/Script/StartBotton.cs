@@ -12,6 +12,10 @@ public class StartBotton : MonoBehaviour
         // Spaceキーが押された瞬間に処理を実行
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (GameManeger.Instance != null)
+        {
+            GameManeger.Instance.ResetGameState();
+        }
             // 次のシーンを読み込む
             SceneManager.LoadScene(game2scene);
             

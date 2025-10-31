@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3430663079148854583
+--- !u!1 &948083776591449140
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3423382971564228715}
-  - component: {fileID: 3373382283505366699}
-  - component: {fileID: 2113024232899586463}
+  - component: {fileID: 6853195510215264489}
+  - component: {fileID: 8457975101409807358}
+  - component: {fileID: 6536616773051209837}
   m_Layer: 0
-  m_Name: GameManeger
+  m_Name: spacemaneger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3423382971564228715
+--- !u!4 &6853195510215264489
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3430663079148854583}
+  m_GameObject: {fileID: 948083776591449140}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.2780492, y: -0.38833314, z: -0.02069512}
@@ -33,39 +33,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3373382283505366699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3430663079148854583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0413ea4c088e6a4c8bcf80b9f6eebd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playTimeText: {fileID: 0}
-  totalPlayTime: 0
-  game2scene: game2scene
-  RankingScene: RankingScene
-  spaceScene: spaceScene
-  FinishText: {fileID: 0}
-  guageTimeText: {fileID: 0}
-  gauge: 10
-  gaugetime: 0
-  intaval: 2
-  GameOverSound: {fileID: 8300000, guid: 35ad8bec20d64344fbc9d18a7b657784, type: 3}
-  ItemGetSound: {fileID: 8300000, guid: 8c88b3c4aec458d449bd1abc83344a2b, type: 3}
-  BadItemGetSound: {fileID: 8300000, guid: 27a03935ee4bc0d4392e5cd7cc1d16fd, type: 3}
-  GaugeInsideUI: {fileID: 0}
---- !u!82 &2113024232899586463
+--- !u!82 &8457975101409807358
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3430663079148854583}
+  m_GameObject: {fileID: 948083776591449140}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -156,3 +130,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6536616773051209837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948083776591449140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b1e9983bd8736e4ba2bcb5f62bcb63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playTimeText: {fileID: 0}
+  totalPlayTime: 0
+  game2scene: game2scene
+  RankingScene: RankingScene
+  spaceScene: spaceScene
+  FinishText: {fileID: 0}
+  guageTimeText: {fileID: 0}
+  gauge: 0
+  gaugetime: 0
+  intaval: 2
+  GameOverSound: {fileID: 0}
+  ItemGetSound: {fileID: 0}
+  BadItemGetSound: {fileID: 0}
+  GaugeInsideUI: {fileID: 0}

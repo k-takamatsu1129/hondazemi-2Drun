@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -34,9 +35,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        //画面の幅取得
+        // 画面の幅と高さを取得
         float screenLeftBoundary = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
         float screenRightBoundary = mainCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x;
+        float screenBottomBoundary = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y;
+        float screenTopBoundary = mainCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;
 
         // 画面外に出ていない場合のみ判定
         if (!hasLeftScreen)
@@ -45,8 +48,15 @@ public class Player : MonoBehaviour
             if (myRenderer != null)
             {
                 float objectWidth = myRenderer.bounds.size.x;
-                if (transform.position.x + objectWidth / 2 < screenLeftBoundary ||
-                    transform.position.x - objectWidth / 2 > screenRightBoundary)
+                float objectHeight = myRenderer.bounds.size.y;
+
+                // 左右の判定
+                bool isOutsideHorizontal = transform.position.x + objectWidth / 2 < screenLeftBoundary || transform.position.x - objectWidth / 2 > screenRightBoundary;
+
+                // 上下の判定
+                bool isOutsideVertical = transform.position.y + objectHeight / 2 < screenBottomBoundary || transform.position.y - objectHeight / 2 > screenTopBoundary;
+
+                if (isOutsideHorizontal || isOutsideVertical)
                 {
                     hasLeftScreen = true;
                     if (gamemaneger != null)
@@ -55,9 +65,9 @@ public class Player : MonoBehaviour
                         gamemaneger.GameOver(); // ゲームオーバー処理を呼び出す
                     }
                 }
-            }
+            }  
         }
-    }
+    }   
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -92,6 +102,11 @@ public class Player : MonoBehaviour
             {
                 gamemaneger.difitem();
             }
+        }
+
+        if(collision.gameObject.CompareTag("item2"))
+        {
+            gamemaneger.changsene();
         }
 
         //敵と接触した時の処理
