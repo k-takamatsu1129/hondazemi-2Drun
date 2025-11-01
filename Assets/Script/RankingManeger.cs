@@ -18,7 +18,7 @@ public class RankingManager : MonoBehaviour
     public TMP_Text rankingText;
 
     [Tooltip("How many top entries to show (e.g. 10).")]
-    public int topN = 10;
+    public int topN = 5;
 
     void Start()
     {
@@ -57,15 +57,13 @@ public class RankingManager : MonoBehaviour
         List<ScoreEntry> entries = ScoreManager.ReadScores();
 
         var sb = new StringBuilder();
-        sb.AppendLine("RANK  NAME        SCORE");
-        sb.AppendLine("------------------------");
 
         int count = Mathf.Min(topN, entries.Count);
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < count; i++)
         {
             var e = entries[i];
             // 固定長フォーマット（簡易）
-            sb.AppendFormat("{0,2}.   {1,-10}  {2,5}\n", i + 1, e.name, e.score);
+            sb.AppendFormat("{0,2}   {1,-10}  {2,4}\n", "", e.name, e.score);
         }
 
         if (entries.Count == 0)
@@ -79,6 +77,11 @@ public class RankingManager : MonoBehaviour
     // UI のボタンに繋いで使用
     public void ClearAllScores()
     {
+        // if (Input.GetKeyDown(KeyCode.RightShift))
+        // {
+        //     ScoreManager.ClearScores();
+        //     ShowRanking();
+        // }
         ScoreManager.ClearScores();
         ShowRanking();
     }

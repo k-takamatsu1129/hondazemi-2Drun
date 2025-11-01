@@ -20,7 +20,7 @@ public class PlayerNameInput : MonoBehaviour
         if (nameInput.isFocused)
         {
             // 3. スペースキーが押された瞬間を検知
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Space))
             {
                 // ゲーム開始処理を呼び出す
                 OnStartGame();

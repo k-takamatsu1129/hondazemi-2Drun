@@ -5,17 +5,17 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
 
-    private const string PlayTimeKey = "TotalPlayTime";
+    private const string LastPlayTimeKey = "LastPlayTime";
 
     // ���Q�[���ł͂��̃��\�b�h���X�R�A�v�Z�̌�ɌĂ�
     public void FinishGameWithScoreFromField()
     {
-        float score = PlayerPrefs.GetFloat(PlayTimeKey);
+        int score = (int) PlayerPrefs.GetFloat(LastPlayTimeKey); 
 
         SaveAndShowRanking(score);
     }
 
-    public void SaveAndShowRanking(float score)
+    public void SaveAndShowRanking(int score)
     {
         string playerName = PlayerPrefs.GetString("PlayerName", "Player");
 
