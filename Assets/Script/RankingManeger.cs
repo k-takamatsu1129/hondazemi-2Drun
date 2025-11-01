@@ -22,22 +22,13 @@ public class RankingManager : MonoBehaviour
 
     void Start()
     {
-
-        if (rankingText == null)
-        {
-            Debug.LogError("rankingText is not assigned in RankingManager.");
-            return;
-        }
-        ShowRanking();
-
-        // PlayerPrefsから最終プレイ時間を読み込む
         if (PlayerPrefs.HasKey(LastPlayTimeKey))
         {
             float lastPlayTime = PlayerPrefs.GetFloat(LastPlayTimeKey);
             
-            int minutes = (int)Mathf.Floor(lastPlayTime / 60);
-            int seconds = (int)Mathf.Floor(lastPlayTime % 60);
-            lastScoreText.text = string.Format("今回の記録: {0:00}:{1:00}", minutes, seconds);
+            // int minutes = (int)Mathf.Floor(lastPlayTime / 60);
+            // int seconds = (int)Mathf.Floor(lastPlayTime % 60);
+            // lastScoreText.text = string.Format("今回の記録: {0:00}:{1:00}", minutes, seconds);
 
             // ★★★読み込んだ後にPlayerPrefsをクリア★★★
             PlayerPrefs.DeleteKey(LastPlayTimeKey);
@@ -50,8 +41,15 @@ public class RankingManager : MonoBehaviour
         }
         else
         {
-            lastScoreText.text = "今回の記録: なし";
+            // lastScoreText.text = "今回の記録: なし";
         }
+
+        if (rankingText == null)
+        {
+            Debug.LogError("rankingText is not assigned in RankingManager.");
+            return;
+        }
+        ShowRanking();
     }
 
     public void ShowRanking()
@@ -63,7 +61,7 @@ public class RankingManager : MonoBehaviour
         sb.AppendLine("------------------------");
 
         int count = Mathf.Min(topN, entries.Count);
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < 5; i++)
         {
             var e = entries[i];
             // 固定長フォーマット（簡易）

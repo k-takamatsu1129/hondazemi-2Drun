@@ -21,6 +21,8 @@ public class GameManeger : MonoBehaviour
     // シングルトンインスタンス
     public static GameManeger Instance;
 
+    public GameManager gamemanager;
+
 
     public TextMeshProUGUI guageTimeText;  //ゲージテキストの取得
     public float gauge; //食料ゲージ
@@ -151,6 +153,8 @@ public class GameManeger : MonoBehaviour
         //時間の保存
         PlayerPrefs.SetFloat("LastPlayTime", totalPlayTime); 
         PlayerPrefs.Save();
+
+        gamemanager.FinishGameWithScoreFromField();
 
         //地上音楽を停止
         GameObject soundObject = GameObject.Find("MainSoundObject");

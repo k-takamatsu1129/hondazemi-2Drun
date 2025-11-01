@@ -4,32 +4,18 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [Tooltip("For quick testing: a TMP_InputField where you can type a score to finish the game.")]
-    public TMP_InputField scoreInputField;
 
-    [Tooltip("Scene name to load when showing ranking (e.g. \"RankingScene\").")]
-    public string rankingSceneName = "RankingScene";
+    private const string PlayTimeKey = "TotalPlayTime";
 
-    // ÀƒQ[ƒ€‚Å‚Í‚±‚Ìƒƒ\ƒbƒh‚ğƒXƒRƒAŒvZ‚ÌŒã‚ÉŒÄ‚Ô
+    // ï¿½ï¿½ï¿½Qï¿½[ï¿½ï¿½ï¿½Å‚Í‚ï¿½ï¿½Ìƒï¿½ï¿½\ï¿½bï¿½hï¿½ï¿½ï¿½Xï¿½Rï¿½Aï¿½vï¿½Zï¿½ÌŒï¿½ÉŒÄ‚ï¿½
     public void FinishGameWithScoreFromField()
     {
-        if (scoreInputField == null)
-        {
-            Debug.LogError("scoreInputField is not assigned in GameManager.");
-            return;
-        }
-
-        string s = scoreInputField.text;
-        if (!int.TryParse(s, out int score))
-        {
-            Debug.LogWarning("Score is not a valid integer. Using 0.");
-            score = 0;
-        }
+        float score = PlayerPrefs.GetFloat(PlayTimeKey);
 
         SaveAndShowRanking(score);
     }
 
-    public void SaveAndShowRanking(int score)
+    public void SaveAndShowRanking(float score)
     {
         string playerName = PlayerPrefs.GetString("PlayerName", "Player");
 
@@ -38,7 +24,5 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("Failed to save score.");
         }
-
-        SceneManager.LoadScene(rankingSceneName);
     }
 }

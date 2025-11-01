@@ -15,7 +15,7 @@ public static class ScoreManager
 {
     static readonly string fileName = "scores.txt";
 
-    // •Û‘¶æƒtƒ‹ƒpƒX
+    // ï¿½Û‘ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½pï¿½X
     public static string FilePath
     {
         get
@@ -24,14 +24,14 @@ public static class ScoreManager
         }
     }
 
-    // ƒtƒH[ƒ}ƒbƒg: name|score
-    public static bool SaveScore(string playerName, int score)
+    // ï¿½tï¿½Hï¿½[ï¿½}ï¿½bï¿½g: name|score
+    public static bool SaveScore(string playerName, float score)
     {
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(FilePath) ?? Application.persistentDataPath);
 
-            // ƒGƒXƒP[ƒv‚µ‚È‚¢ŠÈˆÕƒtƒH[ƒ}ƒbƒgi'|' ‚ğ–¼‘O‚Ég‚í‚È‚¢‘O’ñj
+            // ï¿½Gï¿½Xï¿½Pï¿½[ï¿½vï¿½ï¿½ï¿½È‚ï¿½ï¿½ÈˆÕƒtï¿½Hï¿½[ï¿½}ï¿½bï¿½gï¿½i'|' ï¿½ğ–¼‘Oï¿½Égï¿½ï¿½È‚ï¿½ï¿½Oï¿½ï¿½j
             string line = $"{playerName}|{score}";
             File.AppendAllLines(FilePath, new[] { line });
             Debug.Log($"Saved score to {FilePath}: {line}");
@@ -44,7 +44,7 @@ public static class ScoreManager
         }
     }
 
-    // ƒtƒ@ƒCƒ‹‚©‚ç‚·‚×‚Ä“Ç‚İ‚İAƒp[ƒXA~‡ƒ\[ƒg‚µ‚Ä•Ô‚·
+    // ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ç‚·ï¿½×‚Ä“Ç‚İï¿½ï¿½İAï¿½pï¿½[ï¿½Xï¿½Aï¿½~ï¿½ï¿½ï¿½\ï¿½[ï¿½gï¿½ï¿½ï¿½Ä•Ô‚ï¿½
     public static List<ScoreEntry> ReadScores()
     {
         var list = new List<ScoreEntry>();
@@ -66,7 +66,7 @@ public static class ScoreManager
                 list.Add(new ScoreEntry { name = name, score = score });
             }
 
-            // ~‡: ‚‚¢ƒXƒRƒA‚ªã
+            // ï¿½~ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Rï¿½Aï¿½ï¿½ï¿½ï¿½
             list = list.OrderByDescending(e => e.score).ThenBy(e => e.name).ToList();
         }
         catch (Exception ex)
@@ -76,7 +76,7 @@ public static class ScoreManager
         return list;
     }
 
-    // ƒeƒXƒg—p: ƒXƒRƒA‚ğ‘S•”Á‚·
+    // ï¿½eï¿½Xï¿½gï¿½p: ï¿½Xï¿½Rï¿½Aï¿½ï¿½Sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public static void ClearScores()
     {
         try
