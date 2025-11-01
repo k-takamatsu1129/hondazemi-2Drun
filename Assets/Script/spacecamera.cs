@@ -2,7 +2,7 @@
 using System.Collections.Generic; 
 using UnityEngine;
 
-public class camera : MonoBehaviour
+public class spacecamera : MonoBehaviour
 {
     public float speed;   // 横に移動する速度
     public float speedup = 1f; //速度の上げ幅
@@ -12,7 +12,7 @@ public class camera : MonoBehaviour
     private  float interval = 10f; // 10秒ごとにスピードを上げる
     private const string PlayTimeKey = "TotalPlayTime";
 
-    private const string Camerakey = "Camera";
+    private const string SpaceCamerakey = "SpaceCamera";
 
     Rigidbody2D rbody; // リジッドボディを使うための宣言
 
@@ -20,7 +20,7 @@ public class camera : MonoBehaviour
     void Start()
     {
         //速度の初期化
-        speed = PlayerPrefs.GetFloat(Camerakey);
+        speed = PlayerPrefs.GetFloat(SpaceCamerakey);
         //時間を初期化
         totalPlayTime = 0f;
         //時間の開始
@@ -39,7 +39,7 @@ public class camera : MonoBehaviour
             totalPlayTime -= interval;
 
             //速度の保存
-            PlayerPrefs.SetFloat("Camera", speed);
+            PlayerPrefs.SetFloat("SpaceCamera", speed);
             PlayerPrefs.Save();
         }
     }

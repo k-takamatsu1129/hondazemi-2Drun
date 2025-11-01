@@ -218,7 +218,6 @@ MonoBehaviour:
   itemPrefabs:
   - {fileID: 5699621902120359987, guid: 18392232db8667645ba1a48734bb7339, type: 3}
   - {fileID: 4507186053434964649, guid: 6058733e723a2ce43b3562c8998ca963, type: 3}
-  - {fileID: 4507186053434964649, guid: 6058733e723a2ce43b3562c8998ca963, type: 3}
   - {fileID: 5967394280703443853, guid: e9b36bfa82724ee44b3801104ad9dda7, type: 3}
   cameraTransform: {fileID: 922624317}
   spawnOffset: 20
@@ -749,6 +748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20838708c8412144910b378f349f874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spaceScene: spaceScene
   speed: 5
   defaultspeed: 6
   fastspeed: 7
@@ -1109,6 +1109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20838708c8412144910b378f349f874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spaceScene: spaceScene
   speed: 6
   defaultspeed: 10
   fastspeed: 7
@@ -2077,6 +2078,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3373382283505366699, guid: 5ad4fbef919dd0d439235beaa4acb34d, type: 3}
+      propertyPath: move
+      value: 
+      objectReference: {fileID: 5973653427218792971, guid: c604708477653b648901b0795ff371b7, type: 3}
     - target: {fileID: 3373382283505366699, guid: 5ad4fbef919dd0d439235beaa4acb34d, type: 3}
       propertyPath: FinishText
       value: 

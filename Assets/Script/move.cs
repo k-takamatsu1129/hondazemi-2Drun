@@ -1,11 +1,14 @@
 //using System.Collections;
 using System.Collections.Generic; 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MOOV : MonoBehaviour
+public class Move : MonoBehaviour
 {
+    [SerializeField] private string spaceScene = "spaceScene";
+
     public float speed;  //この変数でスピードを管理
-    public float defaultspeed = 6f;   //元の変数
+    public float defaultspeed;   //元の変数
     public float fastspeed = 8f;  //早いときの速度の変数
     public float slowspped = 4f;  //遅いときの速度の変数
     public float speedup = 1f; //速度の上げ幅
@@ -17,13 +20,15 @@ public class MOOV : MonoBehaviour
 
     Rigidbody2D rbody; // リジッドボディを使うための宣言
 
+    private const string Lastspeedkey = "Lastspeed";
+
     // Start is called before the first frame update
     void Start()
     {
         //速度の初期化
-        defaultspeed = 6f;
-        fastspeed = 8f;
-        slowspped = 4f;
+        defaultspeed = PlayerPrefs.GetFloat(Lastspeedkey);
+        fastspeed = defaultspeed + 2f;
+        slowspped = defaultspeed - 2f;
 
         //時間を初期化
         totalPlayTime = 0f;
@@ -46,6 +51,9 @@ public class MOOV : MonoBehaviour
             slowspped += speedup;
             //rbody.linearDamping += 0.5f; //ジャンプ力も下がってる
             totalPlayTime -= interval;
+
+            PlayerPrefs.SetFloat("Lastspeed", defaultspeed);
+            PlayerPrefs.Save();
         }
 
         if(Input.GetKey(KeyCode.D)){

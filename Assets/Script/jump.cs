@@ -3,12 +3,14 @@ using System.Collections.Generic;
 
 public class jump : MonoBehaviour
 {
-    public float Jump = 580.0f;
+    public float Jump;
     public float val = 30f;
     public float intaval = 10f;
     public bool isJump = true;
     private float totalPlayTime = 0f;
     Rigidbody2D rbody;
+
+    private const string jumpkey = "jump";
 
     public Sprite walking;
     public Sprite jumping;
@@ -19,6 +21,7 @@ public class jump : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Jump = PlayerPrefs.GetFloat(jumpkey);
         totalPlayTime = 0f;
         rbody = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
@@ -32,6 +35,10 @@ public class jump : MonoBehaviour
         if(totalPlayTime >= intaval){
             Jump += val;
             totalPlayTime = 0f;
+
+            //ジャンプ力の保存
+            PlayerPrefs.SetFloat("jump", Jump);
+            PlayerPrefs.Save();
         }
 
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && !isJump && Time.deltaTime != 0)
