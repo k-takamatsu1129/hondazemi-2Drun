@@ -6,6 +6,11 @@ public class RankingManager : MonoBehaviour
 {
     public TextMeshProUGUI lastScoreText;
     private const string LastPlayTimeKey = "LastPlayTime";
+    private const string Lastspeedkey = "Lastspeed";
+    private const string SpaceCamerakey = "SpaceCamera";
+    private const string Camerakey = "Camera";
+    private const string spacespeedkey = "spacespeed";
+    private const string jumpkey = "jump";
 
     void Start()
     {
@@ -20,6 +25,11 @@ public class RankingManager : MonoBehaviour
 
             // ★★★読み込んだ後にPlayerPrefsをクリア★★★
             PlayerPrefs.DeleteKey(LastPlayTimeKey);
+            PlayerPrefs.SetFloat("Lastspeed", 6f);
+            PlayerPrefs.SetFloat("Camera", 6f);
+            PlayerPrefs.SetFloat("SpaceCamera", 6f);
+            PlayerPrefs.SetFloat("spacespeed", 6f);
+            PlayerPrefs.SetFloat("jump", 580.0f);
             PlayerPrefs.Save();
         }
         else

@@ -3,11 +3,11 @@ using UnityEngine;
 public class fly : MonoBehaviour
 {
     // 基本の強制スクロール速度
-    public float baseSpeed = 6f;
+    public float baseSpeed;
     // Dキーを押したときの加速分
-    public float boostSpeed = 8f;
+    public float boostSpeed;
     //Aキーを押したときの速度
-    public float slowspeed = 4f;
+    public float slowspeed;
     // 上下の移動速度
     public float verticalSpeed = 5f;
     public float speedup = 5f;
@@ -25,6 +25,8 @@ public class fly : MonoBehaviour
     // 画面の縦方向の移動範囲を制限
     public float verticalLimit = 8f;
 
+    private const string spacespeedkey = "spacespeed";
+
     // Rigidbody2Dコンポーネントへの参照
     private Rigidbody2D rb;
     
@@ -36,6 +38,12 @@ public class fly : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         // 重力の影響をなくす
         rb.gravityScale = 0;
+
+        //速度の設定
+        baseSpeed = PlayerPrefs.GetFloat(spacespeedkey);
+        boostSpeed = baseSpeed + 2f;
+        slowspeed = baseSpeed - 2f;
+
         //時間を初期化
         totalPlayTime = 0f;
         //時間の開始
@@ -60,6 +68,10 @@ public class fly : MonoBehaviour
             slowspeed += speedup;
             //rbody.linearDamping += 0.5f; //ジャンプ力も下がってる
             totalPlayTime -= interval;
+
+            //速度の保存
+            PlayerPrefs.SetFloat("spacespeed", baseSpeed);
+            PlayerPrefs.Save();
         }
 
         // Dキーが押されている場合は加速
