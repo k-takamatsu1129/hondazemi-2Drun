@@ -25,7 +25,7 @@ public static class ScoreManager
     }
 
     // �t�H�[�}�b�g: name|score
-    public static bool SaveScore(string playerName, float score)
+    public static bool SaveScore(string playerName, int score)
     {
         try
         {
@@ -35,6 +35,7 @@ public static class ScoreManager
             string line = $"{playerName}|{score}";
             File.AppendAllLines(FilePath, new[] { line });
             Debug.Log($"Saved score to {FilePath}: {line}");
+            Debug.Log(line);
             return true;
         }
         catch (Exception ex)
@@ -65,7 +66,6 @@ public static class ScoreManager
                 if (!int.TryParse(parts[1], out int score)) continue;
                 list.Add(new ScoreEntry { name = name, score = score });
             }
-
             // �~��: �����X�R�A����
             list = list.OrderByDescending(e => e.score).ThenBy(e => e.name).ToList();
         }

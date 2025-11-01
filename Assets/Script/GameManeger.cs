@@ -153,6 +153,7 @@ public class GameManeger : MonoBehaviour
         //時間の保存
         PlayerPrefs.SetFloat("LastPlayTime", totalPlayTime); 
         PlayerPrefs.Save();
+        Debug.Log(totalPlayTime);
 
         gamemanager.FinishGameWithScoreFromField();
 
