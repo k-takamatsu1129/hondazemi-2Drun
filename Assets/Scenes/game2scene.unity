@@ -2095,6 +2095,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1060350927}
     - target: {fileID: 3373382283505366699, guid: 5ad4fbef919dd0d439235beaa4acb34d, type: 3}
+      propertyPath: GameOverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8c6b9a4405209a74cb67934057d2ccc1, type: 3}
+    - target: {fileID: 3373382283505366699, guid: 5ad4fbef919dd0d439235beaa4acb34d, type: 3}
       propertyPath: GaugeInsideUI
       value: 
       objectReference: {fileID: 70803221}
@@ -2102,6 +2106,14 @@ PrefabInstance:
       propertyPath: guageTimeText
       value: 
       objectReference: {fileID: 1672410926}
+    - target: {fileID: 3373382283505366699, guid: 5ad4fbef919dd0d439235beaa4acb34d, type: 3}
+      propertyPath: GameOverSound1
+      value: 
+      objectReference: {fileID: 8300000, guid: 35ad8bec20d64344fbc9d18a7b657784, type: 3}
+    - target: {fileID: 3373382283505366699, guid: 5ad4fbef919dd0d439235beaa4acb34d, type: 3}
+      propertyPath: GameOverSound2
+      value: 
+      objectReference: {fileID: 8300000, guid: 8c6b9a4405209a74cb67934057d2ccc1, type: 3}
     - target: {fileID: 3373382283505366699, guid: 5ad4fbef919dd0d439235beaa4acb34d, type: 3}
       propertyPath: SpaceItemGetSound
       value: 
