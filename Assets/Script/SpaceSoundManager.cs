@@ -36,6 +36,11 @@ public class SpaceSoundManager : MonoBehaviour
             audioSource.PlayOneShot(audioClip);
             isSpace = true;
         }
+        else if(SceneManager.GetActiveScene().name == "RankingScene")
+        {
+            isSpace = false;
+            DestroyThis();
+        }
     }
 
     void DestroyThis()

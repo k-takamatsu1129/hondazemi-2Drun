@@ -30,7 +30,8 @@ public class GameManeger : MonoBehaviour
     public float intaval = 2f;  //２秒ごとに食料ゲージを減らす
 
     private AudioSource audioSource;
-    public AudioClip GameOverSound;
+    public AudioClip GameOverSound1;
+    public AudioClip GameOverSound2;
     public AudioClip ItemGetSound;
     public AudioClip BadItemGetSound;
     public AudioClip SpaceItemGetSound;
@@ -177,7 +178,8 @@ public class GameManeger : MonoBehaviour
             audioSource.Stop();
         }
         //効果音再生
-        audioSource.PlayOneShot(GameOverSound);
+        audioSource.PlayOneShot(GameOverSound1);
+        audioSource.PlayOneShot(GameOverSound2);
 
         //１秒後に画面遷移
         StartCoroutine(GameOverCoroutine(1f, RankingScene));
